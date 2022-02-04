@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 from datetime import date
 # from Backend.apod_api import ApodAPI
 
@@ -45,7 +46,8 @@ class Dashboard:
                 else:
                     count = 1
             with col_1:
-                st.image('graphics/galaxy.png')
+                image = Image.open('Frontend/graphics/galaxy.png')
+                st.image(image, use_column_width='auto')
 
     def __download_data(self):
         pass

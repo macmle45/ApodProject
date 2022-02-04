@@ -20,14 +20,16 @@ class ApodAPI:
     def retrieve_json_data(json_data):
         apod_data = dict()
 
-        apod_data['date'] = json_data['date']
-        apod_data['title'] = json_data['title']
-        apod_data['description'] = json_data['explanation']
-        apod_data['media_type'] = json_data['media_type']
-        apod_data['media_hdurl'] = json_data['hdurl']
+        raw_data = json.loads(json_data.text)
+
+        apod_data['date'] = raw_data['date']
+        apod_data['title'] = raw_data['title']
+        apod_data['description'] = raw_data['explanation']
+        apod_data['media_type'] = raw_data['media_type']
+        apod_data['media_hdurl'] = raw_data['hdurl']
 
         try:
-            apod_data['copyright'] = json_data['copyright']
+            apod_data['copyright'] = raw_data['copyright']
 
             return apod_data
         except KeyError:

@@ -4,7 +4,7 @@ import json
 
 class ApodAPI:
     @staticmethod
-    def download_apod_data(url, params):
+    def download_apod_data(url, params=None):
         result = req.get(
             url,
             params
@@ -33,4 +33,5 @@ class ApodAPI:
 
             return apod_data
         except KeyError:
+            apod_data['copyright'] = ''
             return apod_data

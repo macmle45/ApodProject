@@ -1,9 +1,9 @@
-import datetime
+from datetime import date
 from pydantic import BaseModel
 
 
 class ApodData(BaseModel):
-    date: datetime
+    apod_date: date
     title: str
     media: bytes
     description: str
